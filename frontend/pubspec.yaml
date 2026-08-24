@@ -1,0 +1,96 @@
+name: smartbet_ai
+description: "AI-powered betting and lottery analytics assistant"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  # UI and Material Design
+  cupertino_icons: ^1.0.2
+  google_fonts: ^6.1.0
+  
+  # State Management
+  provider: ^6.0.0
+  riverpod: ^2.4.0
+  flutter_riverpod: ^2.4.0
+  
+  # HTTP and API
+  http: ^1.1.0
+  dio: ^5.3.1
+  
+  # WebSocket for real-time updates
+  web_socket_channel: ^2.4.1
+  
+  # Data serialization
+  json_annotation: ^4.8.1
+  
+  # Local storage
+  shared_preferences: ^2.2.2
+  sqflite: ^2.3.0
+  
+  # Charts and visualizations
+  charts_flutter: ^0.12.0
+  fl_chart: ^0.63.0
+  
+  # Voice and chat
+  speech_to_text: ^6.4.0
+  text_to_speech: ^0.2.3
+  
+  # Notifications
+  flutter_local_notifications: ^16.2.0
+  
+  # Date and time
+  intl: ^0.19.0
+  
+  # Logging
+  logger: ^2.0.1
+  
+  # Security
+  flutter_secure_storage: ^9.0.0
+  
+  # Camera and image handling
+  image_picker: ^1.0.4
+  
+  # Analytics
+  firebase_analytics: ^10.5.0
+  firebase_core: ^2.21.0
+  
+  # Push notifications
+  firebase_messaging: ^14.6.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  
+  flutter_lints: ^3.0.0
+  build_runner: ^2.4.6
+  json_serializable: ^6.7.1
+
+flutter:
+  uses-material-design: true
+  
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+  
+  fonts:
+    - family: CustomFont
+      fonts:
+        - asset: assets/fonts/CustomFont-Regular.ttf
+        - asset: assets/fonts/CustomFont-Bold.ttf
+          weight: 700
+
+# Minimum required dependencies for SmartBet AI features
+# - State management: Provider for simple state, Riverpod for advanced
+# - Charts: FL Chart for real-time analytics visualizations
+# - Real-time sync: WebSocketChannel for live updates
+# - Voice: Speech-to-text for voice commands and chatbot
+# - Security: JWT token storage with secure storage
+# - Push notifications: Firebase for engagement and alerts

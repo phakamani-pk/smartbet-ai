@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartBet AI</title>
+    <meta
+      name="description"
+      content="AI-powered betting and lottery analytics dashboard."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="brand-mark">S</div>
+          <div>
+            <p class="eyebrow">AI analytics</p>
+            <h1>SmartBet AI</h1>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-item active" data-target="overview">
+            <span>Overview</span>
+          </button>
+          <button class="nav-item" data-target="lottery">
+            <span>Lottery</span>
+          </button>
+          <button class="nav-item" data-target="sports">
+            <span>Sports</span>
+          </button>
+          <button class="nav-item" data-target="ai-agent">
+            <span>AI Agent</span>
+          </button>
+          <button class="nav-item" data-target="account">
+            <span>Account</span>
+          </button>
+        </nav>
+
+        <div class="sidebar-card warning">
+          <p class="mini-label">Responsible play</p>
+          <strong>Budget guard enabled</strong>
+          <span>Spend cap: $250 / week</span>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar">
+          <div>
+            <p class="eyebrow">Good evening</p>
+            <h2>Analytics overview</h2>
+          </div>
+          <div class="topbar-actions">
+            <button class="ghost-button">Export report</button>
+            <button class="primary-button" id="refreshInsight">Refresh insight</button>
+          </div>
+        </header>
+
+        <div class="quick-actions" id="quickActions"></div>
+
+        <section id="overview" class="panel active-panel">
+          <div class="hero-card glass">
+            <div>
+              <p class="mini-label">AI confidence</p>
+              <h3>68% predictive confidence</h3>
+              <p>
+                Recent trends indicate stronger activity in low-volatility lottery
+                picks and underdog value bets.
+              </p>
+            </div>
+            <div class="hero-metrics">
+              <div>
+                <span>ROI</span>
+                <strong>+13.2%</strong>
+              </div>
+              <div>
+                <span>Signal quality</span>
+                <strong>8.4/10</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="focus-grid" id="focusGrid"></div>
+          <div class="stats-grid" id="statsGrid"></div>
+
+          <div class="feed-grid">
+            <div class="panel-card">
+              <div class="section-head">
+                <h3>Prediction feed</h3>
+                <span class="pill info">Updated</span>
+              </div>
+              <div id="predictionFeed" class="feed-list"></div>
+            </div>
+
+            <div class="panel-card">
+              <div class="section-head">
+                <h3>Watchlist</h3>
+                <span class="pill success">Active</span>
+              </div>
+              <div id="watchlist" class="watchlist"></div>
+            </div>
+          </div>
+
+          <div class="content-grid two-col">
+            <div class="panel-card">
+              <div class="section-head">
+                <h3>Lottery momentum</h3>
+                <span class="pill success">Trending up</span>
+              </div>
+              <div class="trend-chart" id="lotteryTrend"></div>
+            </div>
+
+            <div class="panel-card">
+              <div class="section-head">
+                <h3>Sports edge</h3>
+                <span class="pill info">Three picks</span>
+              </div>
+              <ul class="list-stack" id="sportsEdgeList"></ul>
+            </div>
+          </div>
+
+          <div class="content-grid two-col">
+            <div class="panel-card">
+              <div class="section-head">
+                <h3>Market watch</h3>
+                <span class="pill info">Live</span>
+              </div>
+              <div id="marketWatch" class="market-list"></div>
+            </div>
+
+            <div class="panel-card">
+              <div class="section-head">
+                <h3>Signal checklist</h3>
+                <span class="pill success">Healthy</span>
+              </div>
+              <div id="signalChecklist" class="toggle-list"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="lottery" class="panel">
+          <div class="section-head big-space">
+            <div>
+              <p class="eyebrow">Lottery analytics</p>
+              <h3>Hot and cold number tracking</h3>
+            </div>
+            <button class="primary-button small">Analyze draw</button>
+          </div>
+
+          <div class="alert-banner">
+            <span class="warning-icon">⚠</span>
+            <p>
+              Probabilistic predictions only. This is not a guarantee and should be
+              treated as guidance, not certainty.
+            </p>
+          </div>
+
+          <div class="content-grid two-col">
+            <div class="panel-card">
+              <div class="mini-label">Hot numbers</div>
+              <div class="number-row" id="hotNumbers"></div>
+            </div>
+
+            <div class="panel-card">
+              <div class="mini-label">Cold numbers</div>
+              <div class="number-row cold" id="coldNumbers"></div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <div class="section-head">
+              <h3>Probability overview</h3>
+            </div>
+            <div class="bar-grid" id="lotteryBars"></div>
+          </div>
+        </section>
+
+        <section id="sports" class="panel">
+          <div class="section-head big-space">
+            <div>
+              <p class="eyebrow">Sports analytics</p>
+              <h3>Live market intelligence</h3>
+            </div>
+            <button class="primary-button small">View all markets</button>
+          </div>
+
+          <div class="match-grid" id="matchGrid"></div>
+        </section>
+
+        <section id="ai-agent" class="panel">
+          <div class="section-head big-space">
+            <div>
+              <p class="eyebrow">AI agent</p>
+              <h3>Strategy room</h3>
+            </div>
+            <button class="ghost-button">New session</button>
+          </div>
+
+          <div class="chat-card">
+            <div class="chat-thread" id="chatThread"></div>
+            <div class="chat-input-row">
+              <input type="text" value="Ask about tonight's value picks" readonly />
+              <button class="primary-button small">Send</button>
+            </div>
+          </div>
+
+          <div class="prompt-row" id="promptRow"></div>
+        </section>
+
+        <section id="account" class="panel">
+          <div class="section-head big-space">
+            <div>
+              <p class="eyebrow">Account</p>
+              <h3>Budget and protection</h3>
+            </div>
+            <button class="ghost-button">Set limits</button>
+          </div>
+
+          <div class="content-grid two-col">
+            <div class="panel-card">
+              <div class="mini-label">Weekly budget</div>
+              <div class="budget-value">$420 / $750</div>
+              <div class="progress-bar">
+                <span style="width: 56%"></span>
+              </div>
+              <p class="subtle">56% of planned budget used</p>
+            </div>
+
+            <div class="panel-card">
+              <div class="mini-label">Risk profile</div>
+              <ul class="risk-list">
+                <li>Low-to-medium volatility exposure</li>
+                <li>Cooling-off reminder in 3 days</li>
+                <li>Daily spend alert enabled</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
